@@ -38,14 +38,47 @@ function handleMessage(sender_psid, received_message) {
   let response;
 
   // Check if the message contains text
-  if (received_message.text) {
+  if (received_message.text !== "/help") {
 
     // Create the payload for a basic text message
     response = {
-      "text": `You sent the message: "${received_message.text}". Now send me an image!`
+      "text": `¡Hola! Bienvenido a mi página
+              Si necesitas ayuda por favor escribe /help`
+    }
+  } else {
+    switch (received_message.text) {
+      case "/help":
+        response = { text: `/help - consulta los comandos de ayuda
+                              /llamar - consulta el número de telefono
+                              /correo - consulta el correo de contacto
+                              /portafolio - consulta los trabajos realizados
+                              /web - consulta el link de la página web
+                              ` };
+        break;
+      case "/llamar":
+        response = { text: "+56962817146" };
+        break;
+      case "/correo":
+        response = { text: "rafaelrojas.cov@gmail.com" };
+        break;
+      case "/portafolio":
+        response = { text: "En construcción" };
+        break;
+      case "/web":
+        response = { text: "https://www.rafaelrojascov.com" };
+        break;
+      case "/hi5":
+        response = { text: "Hi Five! Q(^-^Q)" };
+        break;
+      case "/hobbies":
+        response = { text: "Desarrollar, aprender y jugar Injustice 2!" };
+        break;
+      case "/status":
+        response = { text: "Disponible para nuevos proyectos :-)" };
+        break;
     }
   }
-
+//${received_message.text}
   // Sends the response message
   callSendAPI(sender_psid, response);
 }
