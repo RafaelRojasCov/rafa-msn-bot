@@ -46,32 +46,32 @@ function handleMessage(sender_psid, received_message) {
   } else {
     switch (received_message.text) {
       case "/help":
-        response = { text: `/help - consulta los comandos de ayuda
+        response = { "text": `/help - consulta los comandos de ayuda
         /llamar - consulta el número de telefono
         /correo - consulta el correo de contacto
         /portafolio - consulta los trabajos realizados
         /web - consulta el link de la página web` };
         break;
       case "/llamar":
-        response = { text: "+56962817146" };
+        response = { "text": "+56962817146" };
         break;
       case "/correo":
-        response = { text: "rafaelrojas.cov@gmail.com" };
+        response = { "text": "rafaelrojas.cov@gmail.com" };
         break;
       case "/portafolio":
-        response = { text: "En construcción" };
+        response = { "text": "En construcción" };
         break;
       case "/web":
-        response = { text: "https://www.rafaelrojascov.com" };
+        response = { "text": "https://www.rafaelrojascov.com" };
         break;
       case "/hi5":
-        response = { text: "Hi Five! Q(^-^Q)" };
+        response = { "text": "Hi Five! Q(^-^Q)" };
         break;
       case "/hobbies":
-        response = { text: "Desarrollar, aprender y jugar Injustice 2!" };
+        response = { "text": "Desarrollar, aprender y jugar Injustice 2!" };
         break;
       case "/status":
-        response = { text: "Disponible para nuevos proyectos :-)" };
+        response = { "text": "Disponible para nuevos proyectos :-)" };
         break;
     }
   }
