@@ -38,22 +38,19 @@ function handleMessage(sender_psid, received_message) {
   let response;
 
   // Check if the message contains text
-  if (received_message.text !== "/help") {
-
+  if (received_message.text.includes("ayuda")) {
     // Create the payload for a basic text message
     response = {
-      "text": `¡Hola! Bienvenido a mi página
-              Si necesitas ayuda por favor escribe /help`
+      "text": `¡Hola Bienvenido! Si necesitas ayuda por favor escribe /help`
     }
   } else {
     switch (received_message.text) {
       case "/help":
         response = { text: `/help - consulta los comandos de ayuda
-                              /llamar - consulta el número de telefono
-                              /correo - consulta el correo de contacto
-                              /portafolio - consulta los trabajos realizados
-                              /web - consulta el link de la página web
-                              ` };
+        /llamar - consulta el número de telefono
+        /correo - consulta el correo de contacto
+        /portafolio - consulta los trabajos realizados
+        /web - consulta el link de la página web` };
         break;
       case "/llamar":
         response = { text: "+56962817146" };
