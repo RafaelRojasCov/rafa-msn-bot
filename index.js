@@ -37,45 +37,44 @@ function callSendAPI(sender_psid, response) {
 function handleMessage(sender_psid, received_message) {
 
   let response;
-
+  let message;
   // Check if the message contains text
   if (received_message.text.includes("ayuda")) {
     // Create the payload for a basic text message
-    response = {
-      "text": `¡Hola Bienvenido! Si necesitas ayuda por favor escribe /help`
-    }
+    message = `¡Hola Bienvenido! Si necesitas ayuda por favor escribe /help`
   } else {
     switch (received_message.text) {
       case "/help":
-        response = { "text": `/help - consulta los comandos de ayuda
-        /llamar - consulta el número de telefono
-        /correo - consulta el correo de contacto
-        /portafolio - consulta los trabajos realizados
-        /web - consulta el link de la página web` };
+        message = `/help - consulta los comandos de ayuda\n
+        /llamar - consulta el número de telefono\n
+        /correo - consulta el correo de contacto\n
+        /portafolio - consulta los trabajos realizados\n
+        /web - consulta el link de la página web`
         break;
       case "/llamar":
-        response = { "text": "+56962817146" };
+        message = "+56962817146" 
         break;
       case "/correo":
-        response = { "text": "rafaelrojas.cov@gmail.com" };
+        message = "rafaelrojas.cov@gmail.com" 
         break;
       case "/portafolio":
-        response = { "text": "En construcción" };
+        message = "En construcción" 
         break;
       case "/web":
-        response = { "text": "https://www.rafaelrojascov.com" };
+        message = "https://www.rafaelrojascov.com" 
         break;
       case "/hi5":
-        response = { "text": "Hi Five! Q(^-^Q)" };
+        message = "Hi Five! Q(^-^Q)" 
         break;
       case "/hobbies":
-        response = { "text": "Desarrollar, aprender y jugar Injustice 2!" };
+        message = "Desarrollar, aprender y jugar Injustice 2!" 
         break;
       case "/status":
-        response = { "text": "Disponible para nuevos proyectos :-)" };
+        message = "Disponible para nuevos proyectos :-)" 
         break;
     }
   }
+  response = {"text": message}
 //${received_message.text}
   // Sends the response message
   callSendAPI(sender_psid, response);
@@ -96,7 +95,6 @@ app.post('/webhook', (req, res) => {
       // Gets the body of the webhook event
       let webhook_event = entry.messaging[0];
       console.log(webhook_event);
-
 
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
