@@ -35,7 +35,6 @@ function callSendAPI(sender_psid, response) {
 }
 
 function handleMessage(sender_psid, received_message) {
-
   let response;
   let message;
   // Check if the message contains text
